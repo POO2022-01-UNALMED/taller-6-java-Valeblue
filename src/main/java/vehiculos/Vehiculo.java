@@ -61,6 +61,13 @@ public class Vehiculo {
 	
 	public String vehiculosPorTipo() {
 		return "Automoviles: " + Automovil.getAutomoviles() + "\nCamionetas: " + Camioneta.getCamionetas() + "\nCamiones: " + Camion.getCamiones();
+	
+	
+	
+		
+		
+	
+	
 	}
 	
 	
