@@ -1,11 +1,12 @@
 package vehiculos;
 
 
-package vehiculos;
+
+
 
 public class Vehiculo {
 	
-	protected String placa;
+	private String placa;
 	private int puertas;
 	private int velocidadMaxima;
 	private String nombre;
@@ -27,10 +28,10 @@ public class Vehiculo {
 		this.fabricante = fabricante;
 		
 		
-		if (Pais.ventasPorPais.containsKey(fabricante.getPais())) {
-			 Pais.ventasPorPais.put(fabricante.getPais(), Pais.ventasPorPais.get(fabricante.getPais()) + 1); 
+		if (País.ventasPorPais.containsKey(fabricante.getPaís())) {
+			 País.ventasPorPais.put(fabricante.getPaís(), País.ventasPorPais.get(fabricante.getPais()) + 1); 
 	    } else {
-	    	 Pais.ventasPorPais.put(fabricante.getPais(), 1);    
+	    	 País.ventasPorPais.put(fabricante.getPaís(), 1);    
 	    }
 		
 		if (Fabricante.ventasPorFabrica.containsKey(fabricante)) {
