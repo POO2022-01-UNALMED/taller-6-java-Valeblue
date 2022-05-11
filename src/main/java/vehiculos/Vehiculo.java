@@ -4,6 +4,10 @@ package vehiculos;
 
 
 
+
+
+
+
 public class Vehiculo {
 	
 	private String placa;
@@ -29,9 +33,9 @@ public class Vehiculo {
 		
 		
 		if (País.ventasPorPais.containsKey(fabricante.getPaís())) {
-			 País.ventasPorPais.put(fabricante.getPaís(), País.ventasPorPais.get(fabricante.getPais()) + 1); 
+			 País.ventasPorPaís.put(fabricante.getPaís(), País.ventasPorPaís.get(fabricante.getPaís()) + 1); 
 	    } else {
-	    	 País.ventasPorPais.put(fabricante.getPaís(), 1);    
+	    	 País.ventasPorPaís.put(fabricante.getPaís(), 1);    
 	    }
 		
 		if (Fabricante.ventasPorFabrica.containsKey(fabricante)) {
