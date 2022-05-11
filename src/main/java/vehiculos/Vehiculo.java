@@ -1,27 +1,20 @@
 package vehiculos;
 
 
-
-
-
-
-
-
-
 public class Vehiculo {
+	protected String placa; 
+	protected int puertas; 
+	protected int velocidadMaxima; 
+	protected String nombre; 
+	protected int precio; 
+	protected float peso;
+	protected String traccion; 
+	protected Fabricante fabricante;
 	
-	private String placa;
-	private int puertas;
-	private int velocidadMaxima;
-	private String nombre;
-	private int precio;
-	private int peso;
-	private String traccion;
-	private Fabricante fabricante;
-	private static int cantidadVehiculos;
+	private static int vehiculos = 0;
 	
-	 
-	public Vehiculo(String placa, int puertas, int velocidadMaxima, String nombre, int precio, int peso, String traccion, Fabricante fabricante) {
+	public Vehiculo (String placa, int puertas, int velocidadMaxima, String nombre, int precio, float peso,
+			String traccion, Fabricante fabricante) {
 		this.placa = placa;
 		this.puertas = puertas;
 		this.velocidadMaxima = velocidadMaxima;
@@ -30,86 +23,57 @@ public class Vehiculo {
 		this.peso = peso;
 		this.traccion = traccion;
 		this.fabricante = fabricante;
-		
-		
-		if (País.ventasPorPais.containsKey(fabricante.getPaís())) {
-			 País.ventasPorPaís.put(fabricante.getPaís(), País.ventasPorPaís.get(fabricante.getPaís()) + 1); 
-	    } else {
-	    	 País.ventasPorPaís.put(fabricante.getPaís(), 1);    
-	    }
-		
-		if (Fabricante.ventasPorFabrica.containsKey(fabricante)) {
-			Fabricante.ventasPorFabrica.put(fabricante, Fabricante.ventasPorFabrica.get(fabricante) + 1);
-	    } else {
-	    	Fabricante.ventasPorFabrica.put(fabricante, 1);
-	    }
-		
-		cantidadVehiculos++;	
-	}
-
-	public static int getCantidadVehiculos() {
-		return cantidadVehiculos;
-	}
-
-	public static void setCantidadVehiculos(int cantidadVehiculos) {
-		Vehiculo.cantidadVehiculos = cantidadVehiculos;
+		vehiculos++;
+		fabricante.setContador();
+		fabricante.getPais().setContador();
+		Fabricante.getFabricantes().add(fabricante);
+		Pais.getPaises().add(fabricante.getPais());
 	}
 	
-	public static String vehiculosPorTipo()
-	{
-		return "Automoviles: " + Automovil.getCantidadAutomoviles()+ 
-				"\nCamionetas: " + Camioneta.getCantidadCamionetas() + 
-				"\nCamiones: " + Camion.getCantidadCamiones(); 
-	}
 	
-	public String getPlaca() {
-		return placa;
-	}
 	
-	public void setPlaca(String placa) {
-		this.placa = placa;
-	}
-	public int getPuertas() {
-		return puertas;
-	}
-	public void setPuertas(int puertas) {
-		this.puertas = puertas;
-	}
-	public int getVelocidadMaxima() {
-		return velocidadMaxima;
-	}
-	public void setVelocidadMaxima(int velocidadMaxima) {
-		this.velocidadMaxima = velocidadMaxima;
-	}
-	public String getNombre() {
-		return nombre;
-	}
-	public void setNombre(String nombre) {
-		this.nombre = nombre;
-	}
-	public int getPrecio() {
-		return precio;
-	}
-	public void setPrecio(int precio) {
-		this.precio = precio;
-	}
-	public int getPeso() {
-		return peso;
-	}
-	public void setPeso(int peso) {
-		this.peso = peso;
-	}
-	public String getTraccion() {
-		return traccion;
-	}
-	public void setTraccion(String traccion) {
-		this.traccion = traccion;
-	}
-	public Fabricante getFabricante() {
-		return fabricante;
-	}
-	public void setFabricante(Fabricante fabricante) {
-		this.fabricante = fabricante;
-	}
+	public String getPlaca() {return placa;}
+	public void setPlaca(String placa) {this.placa = placa;}
+	
+	public int getPuertas() {return puertas;}
+	public void setPuertas(int puertas) {this.puertas = puertas;}
+	
+	public float getVelocidadMaxima() {return velocidadMaxima;}
+	public void setVelocidadMaxima(int velocidadMaxima) {this.velocidadMaxima = velocidadMaxima;}
 
+	public String getNombre() {return nombre;}
+	public void setNombre(String nombre) {this.nombre = nombre;}
+	
+	public float getPrecio() {return precio;}
+	public void setPrecio(int precio) {this.precio = precio;}
+	
+	public float getPeso() {return peso;}
+	public void setPeso(float peso) {this.peso = peso;}
+	
+	public String getTraccion() {return traccion;}
+	public void setTraccion(String traccion) {this.traccion = traccion;}
+	
+	public Fabricante getFabricante() {return fabricante;}
+	public void setFabricante(Fabricante fabricante) {this.fabricante = fabricante;}
+	
+	public static int getCantidadVehiculos(){return vehiculos;}
+	public static void setCantidadVehiculos(int vehiculos) {Vehiculo.vehiculos=vehiculos;}
+	
+	public String vehiculosPorTipo() {
+		return "Automoviles: " + Automovil.getAutomoviles() + "\nCamionetas: " + Camioneta.getCamionetas() + "\nCamiones: " + Camion.getCamiones();
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 }
